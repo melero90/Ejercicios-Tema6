@@ -27,3 +27,63 @@ Una vez instalado, ya podemos instalar **chef** tecleando desde el terminal
 
 ### Ejercicio 2
 
+**Crear una receta para instalar nginx, tu editor favorito y algún directorio y fichero que uses de forma habitual.**
+
+En primer lugar debemos crear los directorios para nuestras recetas:
+
+    mkdir -p chef/cookbooks/geany/recipes
+    mkdir -p chef/cookbooks/nginx/recipes
+
+Ahora debemos configurar los ficheros que contendrán la recetas para instalar *geany*, por ejemplo, y *nginx*.
+
+Para ello dentro de "chef/cookbooks/geany/recipes" creamos el fichero default.rb que contendrán la receta para instalar el editor geany y creará un directorio en "/home/antoniomelero/Documentos" y dentro de él un fichero.
+
+    #!usr/bin/ruby
+
+    package 'geany'
+    directory "/home/antoniomelero/Documentos/prueba1"
+        owner "antoniomelero"
+        group "antoniomelero"
+        mode 00544
+        action :create
+        content "Directorio"
+    end
+
+dentro de "chef/cookbooks/nginx/recipes" creamos el fichero default.rb que contendrán la receta para instalar nginx y creará un directorio en "/home/antoniomelero/Documentos" y dentro de él un fichero.
+
+    #!usr/bin/ruby
+
+    package 'nginx'
+    directory "/home/francisco/Documentos/prueba"
+        owner "francisco"
+        group "francisco"
+        mode 00544
+        action :create
+        content "Directorio"
+    end
+
+Lo siguiente es configurar el fichero *"node.json"* que incluirá las referencias a nuestras recetas:
+
+    {
+        "run_list":["recipe[geany]", "recipe[nginx]"]
+    }
+
+Por último debemos de configurar el fichero de configuración "solo.rb" de la siguiente forma:
+
+    #!usr/bin/ruby
+
+    file_cache_path "/home/antoniomelero/Documentos/chef"
+    cookbook_path "/home/antoniomelero/Documentos/chef/cookbooks"
+    json_attribs "/home/antoniomelero/Documentos/chef/node.json"
+
+Ahora desde el directorio raíz podemos ejecutarlo:
+
+    sudo chef-solo -c chef/solo.rb
+
+#### Ejercicio 3
+
+#### Ejercicio 4
+
+#### Ejercicio 5
+
+#### Ejercicio 6
