@@ -55,8 +55,8 @@ dentro de "chef/cookbooks/nginx/recipes" creamos el fichero default.rb que conte
 
     package 'nginx'
     directory "/home/francisco/Documentos/prueba"
-        owner "francisco"
-        group "francisco"
+        owner "antoniomelero"
+        group "antoniomelero"
         mode 00544
         action :create
         content "Directorio"
