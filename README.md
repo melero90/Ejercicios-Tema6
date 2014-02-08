@@ -33,6 +33,8 @@ En primer lugar debemos crear los directorios para nuestras recetas:
 
     mkdir -p chef/cookbooks/geany/recipes
     mkdir -p chef/cookbooks/nginx/recipes
+    
+![captura4](https://dl.dropbox.com/s/42eni81w9s62igu/t6_ej2_1.png)
 
 Ahora debemos configurar los ficheros que contendrán la recetas para instalar *geany*, por ejemplo, y *nginx*.
 
@@ -41,7 +43,7 @@ Para ello dentro de "chef/cookbooks/geany/recipes" creamos el fichero default.rb
     #!usr/bin/ruby
 
     package 'geany'
-    directory "/home/antoniomelero/Documentos/prueba1"
+    directory "/home/Documents/prueba1"
         owner "antoniomelero"
         group "antoniomelero"
         mode 00544
@@ -54,7 +56,7 @@ dentro de "chef/cookbooks/nginx/recipes" creamos el fichero default.rb que conte
     #!usr/bin/ruby
 
     package 'nginx'
-    directory "/home/francisco/Documentos/prueba"
+    directory "/home/Documents/prueba"
         owner "antoniomelero"
         group "antoniomelero"
         mode 00544
@@ -72,13 +74,17 @@ Por último debemos de configurar el fichero de configuración "solo.rb" de la s
 
     #!usr/bin/ruby
 
-    file_cache_path "/home/antoniomelero/Documentos/chef"
-    cookbook_path "/home/antoniomelero/Documentos/chef/cookbooks"
-    json_attribs "/home/antoniomelero/Documentos/chef/node.json"
+    file_cache_path "/home/Documents/chef"
+    cookbook_path "/home/Documents/chef/cookbooks"
+    json_attribs "/home/Documents/chef/node.json"
 
 Ahora desde el directorio raíz podemos ejecutarlo:
 
     sudo chef-solo -c chef/solo.rb
+    
+![captura5](https://dl.dropbox.com/s/ao321y50vkkkrj3/t6_ej2_3.png)
+
+![captura6](https://dl.dropbox.com/s/kisb9w1x1aeq5xp/t6_ej2_2.png)
 
 #### Ejercicio 3
 
