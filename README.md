@@ -14,10 +14,16 @@ Como uso una máquina tipo Ubuntu debemos instalar previamente Ruby y Ruby Gems 
 
     sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems
 
-![captura1]()
+![captura1](https://dl.dropbox.com/s/izmdghj35bp4vpx/t6_ej1.png)
+
+![captura2](https://dl.dropbox.com/s/rcevf6kok2hqsnh/t6_ej1_2.png)
 
 Una vez instalado, ya podemos instalar **chef** tecleando desde el terminal
 
     sudo gem install ohai chef
 
-![captura2]()
+![captura3](https://dl.dropbox.com/s/nvv06nig2py4vvu/t6_ej1_3.png)
+
+
+### Ejercicio 2
+
